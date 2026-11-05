@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瓜子漫画下载-瓜子漫画下载官方版_瓜子漫画app下载安装_漫画阅读软件下载</title>
+<meta name="description" content="瓜子漫画下载页面，介绍瓜子漫画app的下载方式、安装步骤与阅读功能。了解瓜子漫画下载安装包获取途径、版本信息与使用建议，方便在手机上稳定阅读漫画。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2a4a'/%3E%3Ccircle cx='24' cy='26' r='6' fill='%23ffb547'/%3E%3Ccircle cx='42' cy='26' r='6' fill='%23ffb547'/%3E%3Cpath d='M18 40c6 8 22 8 28 0' stroke='%23ffffff' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b2a4a;
+  --ink-soft:#3d4d6b;
+  --muted:#6b7891;
+  --paper:#f7f8fb;
+  --card:#ffffff;
+  --line:#e3e7ef;
+  --gold:#ffb547;
+  --gold-deep:#f09422;
+  --green:#2f9e78;
+  --radius:16px;
+  --shadow:0 10px 28px rgba(27,42,74,.08);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,248,251,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.06rem;letter-spacing:.2px;color:var(--ink);}
+.logo-mark{width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:var(--ink);display:grid;place-items:center;}
+.nav{display:flex;align-items:center;gap:22px;font-size:.94rem;color:var(--ink-soft);}
+.nav a{position:relative;padding:4px 0;}
+.nav a:hover{color:var(--gold-deep);}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .2s;}
+.nav a:hover::after{width:100%;}
+.header-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--ink);color:#fff;font-size:.9rem;font-weight:600;
+  padding:9px 18px;border-radius:999px;white-space:nowrap;
+}
+.header-cta:hover{background:#12203b;}
+
+/* hero */
+.hero{padding:52px 0 40px;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.8rem;font-weight:700;letter-spacing:.5px;
+  color:var(--gold-deep);background:#fff6e6;
+  border:1px solid #ffe4bb;border-radius:999px;padding:5px 14px;
+}
+h1{
+  font-size:clamp(1.9rem,4.4vw,2.9rem);
+  line-height:1.25;margin:18px 0 14px;letter-spacing:.5px;font-weight:800;
+}
+.hero-lead{font-size:1.02rem;color:var(--ink-soft);margin:0 0 22px;max-width:34em;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  color:#3a2400;font-weight:800;font-size:1rem;
+  padding:13px 28px;border-radius:12px;
+  box-shadow:0 8px 20px rgba(240,148,34,.28);
+}
+.btn-primary[aria-disabled="true"]{cursor:default;}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--line);color:var(--ink-soft);
+  font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:12px;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-deep);}
+.hero-note{font-size:.84rem;color:var(--muted);margin-top:14px;}
+
+.hero-art{
+  background:var(--ink);border-radius:22px;padding:22px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.hero-art::before{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  background:rgba(255,181,71,.18);top:-60px;right:-50px;
+}
+.art-caption{color:#aab6cd;font-size:.78rem;letter-spacing:.6px;margin-top:14px;text-align:center;}
+.art-panels{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;}
+.panel{
+  border-radius:10px;background:#26375c;min-height:72px;
+  display:grid;place-items:center;
+}
+.panel span{font-size:.72rem;color:#8e9cb8;letter-spacing:.5px;}
+
+/* sections */
+section{padding:44px 0;}
+.sec-head{max-width:38em;margin-bottom:26px;}
+.sec-tag{font-size:.78rem;font-weight:800;letter-spacing:1.4px;color:var(--gold-deep);text-transform:uppercase;}
+h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin:8px 0 10px;line-height:1.35;font-weight:800;}
+.sec-desc{color:var(--ink-soft);font-size:.98rem;margin:0;}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:0 2px 6px rgba(27,42,74,.03);
+  transition:transform .18s,box-shadow .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.card-icon{
+  width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+  background:#fff6e6;margin-bottom:14px;
+}
+.card h3{font-size:1.04rem;margin:0 0 8px;font-weight:700;}
+.card p{margin:0;font-size:.92rem;color:var(--ink-soft);}
+
+/* steps */
+.steps{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.step-list{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step;}
+.step{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 18px;position:relative;
+}
+.step::before{
+  counter-increment:step;content:counter(step);
+  display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:var(--ink);color:#fff;font-size:.86rem;font-weight:700;margin-bottom:12px;
+}
+.step h3{font-size:.98rem;margin:0 0 6px;font-weight:700;}
+.step p{margin:0;font-size:.88rem;color:var(--ink-soft);}
+
+/* features split */
+.split{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:start;}
+.feature-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.feature-list li{
+  display:grid;grid-template-columns:auto 1fr;gap:12px;
+  background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 18px;
+}
+.tick{
+  width:24px;height:24px;border-radius:50%;background:#e8f7f0;color:var(--green);
+  display:grid;place-items:center;font-size:.78rem;font-weight:800;margin-top:2px;
+}
+.feature-list strong{display:block;font-size:.96rem;margin-bottom:2px;}
+.feature-list span{font-size:.88rem;color:var(--ink-soft);}
+.article-box p{font-size:.96rem;color:var(--ink-soft);margin:0 0 14px;}
+.article-box p:last-child{margin-bottom:0;}
+
+/* faq */
+.faq{background:#fff;border-top:1px solid var(--line);}
+.faq-list{display:grid;gap:12px;max-width:860px;}
+details{
+  background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;
+}
+details[open]{border-color:#ffd79a;background:#fffaf1;}
+summary{
+  cursor:pointer;font-weight:700;font-size:.98rem;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";color:var(--gold-deep);font-weight:800;font-size:1.1rem;}
+details[open] summary::after{content:"−";}
+details p{margin:10px 0 0;font-size:.92rem;color:var(--ink-soft);}
+
+/* cta band */
+.cta-band{
+  background:linear-gradient(135deg,var(--ink),#253a63);
+  border-radius:22px;color:#fff;padding:36px 30px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;
+}
+.cta-band h2{color:#fff;margin:0 0 6px;font-size:1.35rem;}
+.cta-band p{margin:0;color:#b9c4d8;font-size:.94rem;}
+
+/* footer */
+.site-footer{border-top:1px solid var(--line);background:#fff;padding:30px 0 26px;}
+.footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:flex-start;}
+.footer-brand{font-weight:800;font-size:.98rem;margin-bottom:6px;}
+.footer-desc{font-size:.85rem;color:var(--muted);max-width:36em;margin:0;}
+.footer-links{display:flex;flex-wrap:wrap;gap:18px;font-size:.86rem;color:var(--ink-soft);}
+.footer-links a:hover{color:var(--gold-deep);}
+.copyright{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:26px;}
+  .hero-art{order:-1;}
+  .cards{grid-template-columns:1fr 1fr;}
+  .step-list{grid-template-columns:1fr 1fr;}
+  .split{grid-template-columns:1fr;gap:24px;}
+}
+@media (max-width:640px){
+  .nav{display:none;}
+  .header-cta{padding:8px 14px;font-size:.84rem;}
+  .hero{padding:34px 0 26px;}
+  section{padding:34px 0;}
+  .cards{grid-template-columns:1fr;}
+  .step-list{grid-template-columns:1fr;}
+  .cta-band{padding:26px 20px;}
+  .cta-band .btn-primary{width:100%;justify-content:center;}
+  .hero-actions .btn-primary,.hero-actions .btn-ghost{width:100%;justify-content:center;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="4" width="8" height="7" rx="1.6" fill="#ffb547"/>
+          <rect x="13" y="4" width="8" height="7" rx="1.6" fill="#ffffff" opacity=".8"/>
+          <rect x="3" y="13" width="8" height="7" rx="1.6" fill="#ffffff" opacity=".8"/>
+          <rect x="13" y="13" width="8" height="7" rx="1.6" fill="#ffb547"/>
+        </svg>
+      </span>
+      <span>瓜子漫画下载</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#start">下载方式</a>
+      <a href="#steps">安装步骤</a>
+      <a href="#features">阅读功能</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="header-cta" href="#start">获取下载入口</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">漫画阅读 · 客户端下载说明</span>
+        <h1>瓜子漫画下载</h1>
+        <p class="hero-lead">想找瓜子漫画下载的入口，先弄清楚自己的设备和系统版本，再选择对应的安装包。本页把瓜子漫画下载的方式、安装顺序和日常阅读功能整理在一条路径上，方便你一次看完再动手。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3v11m0 0l-4-4m4 4l4-4M5 19h14" stroke="#3a2400" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            下载
+          </a>
+          <a class="btn-ghost" href="#steps">查看安装步骤</a>
+        </div>
+        <p class="hero-note">下载入口以实际发布页面为准，安装前建议核对应用名称与版本号。</p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-panels">
+          <div class="panel"><span>分镜阅读</span></div>
+          <div class="panel"><span>章节列表</span></div>
+          <div class="panel"><span>书架收藏</span></div>
+          <div class="panel"><span>阅读记录</span></div>
+        </div>
+        <p class="art-caption">瓜子漫画下载 · 阅读界面示意</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载方式 -->
+  <section id="start">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Download</span>
+        <h2>瓜子漫画下载的三种常见方式</h2>
+        <p class="sec-desc">不同系统对安装包的要求不一样。下面按使用场景区分，先确认自己属于哪一类，再决定瓜子漫画下载走哪条路径。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="6" y="2.5" width="12" height="19" rx="2.6" stroke="#f09422" stroke-width="1.8"/>
+              <path d="M10.5 18.5h3" stroke="#f09422" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>安卓手机安装包</h3>
+          <p>在安卓设备上完成瓜子漫画下载，通常得到的是 APK 安装文件。下载后需要在系统设置中允许该来源安装应用，再点击文件完成安装。</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="12" rx="2" stroke="#f09422" stroke-width="1.8"/>
+              <path d="M8 21h8" stroke="#f09422" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>电脑端阅读方案</h3>
+          <p>如果更习惯大屏看漫画，可以先用浏览器访问对应页面了解瓜子漫画下载的说明，再决定是否安装模拟环境，避免重复占用磁盘空间。</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3l7 3v6c0 4.2-2.9 7.4-7 9-4.1-1.6-7-4.8-7-9V6l7-3z" stroke="#f09422" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-4" stroke="#f09422" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>下载前的核对要点</h3>
+          <p>确认应用名称与图标一致、版本号与说明页相符、安装包来源可追溯。瓜子漫画下载完成后，建议先查看文件大小是否异常，再执行安装。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安装步骤 -->
+  <section id="steps" class="steps">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Steps</span>
+        <h2>瓜子漫画下载安装的四步顺序</h2>
+        <p class="sec-desc">把瓜子漫画下载的安装过程拆成四步，每一步都对应一个明确动作，照着做能减少中途卡住的情况。</p>
+      </div>
+      <div class="step-list">
+        <div class="step">
+          <h3>确认系统版本</h3>
+          <p>在手机设置里查看安卓版本号与可用存储空间，版本过低或空间不足时先处理，再开始瓜子漫画下载。</p>
+        </div>
+        <div class="step">
+          <h3>获取安装文件</h3>
+          <p>通过说明页给出的入口获取安装包，等待传输完成。瓜子漫画下载过程中不要切换网络，避免文件中断。</p>
+        </div>
+        <div class="step">
+          <h3>允许安装来源</h3>
+          <p>系统提示时进入设置，为当前来源打开安装权限。安装结束后可再关闭该权限，保持设备设置整洁。</p>
+        </div>
+        <div class="step">
+          <h3>打开并登录</h3>
+          <p>安装完成后首次启动，按提示完成账号登录或游客浏览，之后即可在书架里找到已收藏的漫画章节。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 阅读功能 + 正文 -->
+  <section id="features">
+    <div class="wrap split">
+      <div class="article-box">
+        <span class="sec-tag">Reading</span>
+        <h2>下载之后，阅读体验才是重点</h2>
+        <p>瓜子漫画下载只是第一步。装好客户端后，真正影响日常使用的是书架管理、章节加载和阅读记录的连贯性。把这些功能摸清楚，才能判断这款工具是否适合自己长期使用。</p>
+        <p>对于经常在通勤路上看漫画的读者，离线缓存和阅读进度的自动保存更实用；喜欢一次追很多部作品的人，则更依赖书架分类和更新提醒。瓜子漫画下载完成后，建议先按自己的阅读习惯调整一次设置。</p>
+        <p>如果安装后出现页面加载慢、章节空白等情况，优先检查网络连接与客户端版本，再考虑重新执行瓜子漫画下载并覆盖安装，通常能解决大部分异常。</p>
+      </div>
+      <ul class="feature-list">
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <div>
+            <strong>书架集中管理</strong>
+            <span>收藏的作品统一收纳，支持按更新状态与阅读进度排列，找书不用反复翻列表。</span>
+          </div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <div>
+            <strong>章节连续阅读</strong>
+            <span>翻页与滚动两种模式可切换，长章节加载更顺畅，适合一口气追更的场景。</span>
+          </div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <div>
+            <strong>阅读进度留存</strong>
+            <span>退出后再次打开，可回到上次停留的页码，减少重复定位章节的时间。</span>
+          </div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <div>
+            <strong>下载前先看说明</strong>
+            <span>版本更新与功能变化以说明页为准，瓜子漫画下载前花一分钟阅读可少走弯路。</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">FAQ</span>
+        <h2>关于瓜子漫画下载的常见疑问</h2>
+        <p class="sec-desc">整理了读者在瓜子漫画下载前后最常问的几件事，回答只覆盖能确认的范围。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>瓜子漫画下载需要付费吗？</summary>
+          <p>客户端本身的获取通常不涉及额外费用，但部分漫画内容可能由平台设定阅读规则。具体以应用内展示的说明为准，下载前不必预付任何费用。</p>
+        </details>
+        <details>
+          <summary>下载后提示“无法安装”怎么办？</summary>
+          <p>先检查是否已允许该来源安装应用，再确认存储空间是否充足。若安装包在传输中损坏，重新执行一次瓜子漫画下载通常即可解决。</p>
+        </details>
+        <details>
+          <summary>换手机后阅读记录还在吗？</summary>
+          <p>阅读记录是否同步取决于登录状态与平台设置。使用同一账号在新设备完成瓜子漫画下载并登录后，可在书架中查看已同步的内容。</p>
+        </details>
+        <details>
+          <summary>旧版本还能继续用吗？</summary>
+          <p>旧版本在功能与兼容性上可能受限。若遇到页面打不开或章节加载异常，建议按说明页提示更新，重新完成瓜子漫画下载并覆盖安装。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>准备好开始瓜子漫画下载</h2>
+          <p>先核对设备系统与存储空间，再选择对应安装包，按四步顺序完成安装即可开始阅读。</p>
+        </div>
+        <a class="btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">瓜子漫画下载</div>
+        <p class="footer-desc">瓜子漫画下载主题首页，汇总下载方式、安装步骤与阅读功能说明，帮助读者在安装前把关键信息看清楚。</p>
+      </div>
+      <nav class="footer-links" aria-label="页尾导航">
+        <a href="#start">下载方式</a>
+        <a href="#steps">安装步骤</a>
+        <a href="#features">阅读功能</a>
+        <a href="#faq">常见问题</a>
+        <a href="#top">返回顶部</a>
+      </nav>
+    </div>
+    <div class="copyright">© 瓜子漫画下载 · 页面内容为下载与安装说明，功能与版本信息以实际发布页面为准。</div>
+  </div>
+</footer>
+
+</body>
+</html>
