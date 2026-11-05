@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑料大赛-黑料大赛报名入口_黑料大赛赛制规则与作品展示</title>
+<meta name="description" content="黑料大赛主题首页：介绍黑料大赛的定位、参赛方式、赛制流程与作品展示方式，提供报名入口与赛程要点，帮助参赛者快速了解黑料大赛并完成参与。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141821'/%3E%3Cpath d='M20 44 32 18l12 26-12-7z' fill='%23ff5a3c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f1218;
+  --bg-soft:#161b24;
+  --card:#1b212c;
+  --line:#2a3240;
+  --text:#e9edf3;
+  --muted:#9aa7b8;
+  --accent:#ff5a3c;
+  --accent-soft:rgba(255,90,60,.14);
+  --gold:#f5c14b;
+  --radius:14px;
+  --wrap:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:12px;background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px;z-index:99}
+
+/* 页头 */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,18,24,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;gap:24px;min-height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.5px;color:#fff;white-space:nowrap}
+.logo .mark{width:34px;height:34px;flex:none;border-radius:9px;background:var(--accent-soft);display:grid;place-items:center;border:1px solid rgba(255,90,60,.35)}
+nav.main{margin-left:auto;display:flex;gap:22px;font-size:15px;color:var(--muted)}
+nav.main a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+nav.main a:hover{color:#fff;border-bottom-color:var(--accent)}
+.nav-cta{
+  margin-left:8px;background:var(--accent);color:#fff;font-weight:700;font-size:14px;
+  padding:9px 18px;border-radius:999px;white-space:nowrap;
+}
+.nav-cta:hover{filter:brightness(1.08)}
+
+/* 首屏 */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:radial-gradient(900px 420px at 78% -10%,rgba(255,90,60,.18),transparent 65%),
+             radial-gradient(700px 380px at 8% 110%,rgba(245,193,75,.10),transparent 60%);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:64px 0 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:2px;color:var(--gold);
+  border:1px solid rgba(245,193,75,.35);padding:5px 12px;border-radius:999px;background:rgba(245,193,75,.06)}
+h1{font-size:clamp(30px,4.4vw,50px);line-height:1.2;margin:20px 0 16px;font-weight:900;letter-spacing:1px}
+h1 .hl{color:var(--accent)}
+.hero p.lead{color:var(--muted);font-size:16.5px;max-width:34em;margin:0 0 26px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:12px 24px;border-radius:999px;transition:.2s}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 26px -12px rgba(255,90,60,.9)}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line);color:var(--text);background:var(--bg-soft)}
+.btn-ghost:hover{border-color:var(--accent);color:#fff}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none}
+.hero-facts{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+.fact b{display:block;font-size:24px;color:#fff;font-weight:900}
+.fact span{font-size:13px;color:var(--muted)}
+
+/* 首屏视觉 */
+.poster{
+  position:relative;border-radius:22px;border:1px solid var(--line);
+  background:linear-gradient(160deg,#202836,#12161d 70%);
+  padding:26px;box-shadow:0 30px 60px -30px rgba(0,0,0,.9);
+}
+.poster-head{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);letter-spacing:1px}
+.poster-title{font-size:22px;font-weight:900;margin:14px 0 4px;color:#fff}
+.poster-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+.rank-list{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.rank-list li{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:14px}
+.rank-list .no{width:22px;height:22px;flex:none;display:grid;place-items:center;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:12px}
+.rank-list .bar{margin-left:auto;width:64px;height:6px;border-radius:99px;background:#2b3442;overflow:hidden}
+.rank-list .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold))}
+
+/* 通用区块 */
+section{padding:64px 0}
+.sec-head{max-width:720px;margin-bottom:34px}
+.sec-tag{font-size:13px;letter-spacing:2px;color:var(--accent);font-weight:700}
+h2{font-size:clamp(22px,2.8vw,30px);margin:10px 0 12px;font-weight:900;letter-spacing:.5px}
+.sec-head p{color:var(--muted);margin:0}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:.2s}
+.card:hover{border-color:rgba(255,90,60,.45);transform:translateY(-2px)}
+.card h3{font-size:17px;margin:12px 0 8px;font-weight:800}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.icon{width:42px;height:42px;border-radius:11px;background:var(--accent-soft);display:grid;place-items:center;border:1px solid rgba(255,90,60,.3)}
+.card .step{font-size:12px;color:var(--gold);letter-spacing:1px;font-weight:700}
+
+/* 亮点条 */
+.stripe{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stripe .grid{gap:0}
+.stripe .cell{padding:26px 22px;border-left:1px solid var(--line)}
+.stripe .cell:first-child{border-left:0}
+.stripe h3{font-size:15px;margin:0 0 6px;color:#fff}
+.stripe p{margin:0;font-size:13.5px;color:var(--muted)}
+
+/* 流程 */
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:f}
+.flow li{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.flow .num{counter-increment:f;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:900;color:var(--accent);background:var(--accent-soft);border:1px solid rgba(255,90,60,.3)}
+.flow .num::before{content:"0" counter(f)}
+.flow h3{margin:0 0 4px;font-size:16px}
+.flow p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* 评审维度 */
+.criteria{display:grid;gap:16px}
+.crit{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.crit-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.crit-top h3{margin:0;font-size:16px}
+.crit-top b{color:var(--gold);font-size:15px}
+.meter{height:7px;border-radius:99px;background:#2b3442;margin:12px 0 10px;overflow:hidden}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold))}
+.crit p{margin:0;color:var(--muted);font-size:14px}
+
+/* 参赛须知 */
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.note{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.note h3{margin:0 0 10px;font-size:16px;display:flex;gap:8px;align-items:center}
+.note ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.note li{margin:5px 0}
+.quote{border-left:3px solid var(--accent);background:var(--bg-soft);border-radius:0 10px 10px 0;padding:16px 20px;color:var(--muted);font-size:14.5px;margin:0}
+
+/* FAQ */
+.faq{display:grid;gap:12px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+details[open]{border-color:rgba(255,90,60,.45)}
+summary{cursor:pointer;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--muted);font-size:14.5px}
+
+/* 报名区 */
+.cta-band{
+  background:linear-gradient(120deg,rgba(255,90,60,.16),rgba(245,193,75,.08));
+  border:1px solid rgba(255,90,60,.35);border-radius:20px;padding:40px;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;
+}
+.cta-band h2{margin:0 0 10px}
+.cta-band p{color:var(--muted);margin:0}
+.cta-actions{display:flex;flex-direction:column;gap:12px}
+.cta-actions .btn{justify-content:center}
+.hint{font-size:12.5px;color:var(--muted);text-align:center;margin:0}
+
+/* 页尾 */
+footer.site{border-top:1px solid var(--line);background:var(--bg-soft);padding:44px 0 30px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot-brand p{color:var(--muted);font-size:14px;margin:12px 0 0;max-width:30em}
+footer h4{font-size:14px;margin:0 0 12px;color:#fff;letter-spacing:1px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--muted)}
+footer ul a:hover{color:var(--accent)}
+.foot-bottom{border-top:1px solid var(--line);margin-top:30px;padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+
+/* 移动端 */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px;padding:44px 0 48px}
+  .poster{order:2}
+  .g3,.g2,.notes{grid-template-columns:1fr}
+  .stripe .cell{border-left:0;border-top:1px solid var(--line)}
+  .stripe .cell:first-child{border-top:0}
+  .cta-band{grid-template-columns:1fr;padding:28px}
+  .foot-grid{grid-template-columns:1fr;gap:24px}
+}
+@media (max-width:720px){
+  nav.main{display:none}
+  .nav-inner{gap:12px;min-height:62px}
+  .logo{font-size:17px}
+  .nav-cta{padding:8px 14px;font-size:13px}
+  .hero-facts{gap:22px}
+  section{padding:46px 0}
+  body{font-size:15.5px}
+  .flow li{grid-template-columns:44px 1fr;gap:14px;padding:16px}
+  .flow .num{width:38px;height:38px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="黑料大赛 首页">
+      <span class="mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 20 12 4l6 16-6-3.6z" fill="#ff5a3c"/></svg>
+      </span>
+      <span>黑料大赛</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#about">赛事介绍</a>
+      <a href="#flow">赛制流程</a>
+      <a href="#criteria">评审维度</a>
+      <a href="#notes">参赛须知</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="nav-cta" href="#signup">报名入口</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 首屏 -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">年度主题赛事 · 公开征集</span>
+        <h1 id="hero-title">黑料大赛</h1>
+        <p class="lead">黑料大赛是一个围绕“材料深挖与线索讲清”的创作赛事：参赛者提交一份有据可依的选题材料，用公开信息、时间线与证据链，把一件事的来龙去脉讲明白。这里比拼的不是爆料速度，而是整理、核实与表达的能力。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#signup">进入报名入口
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#criteria">查看评审维度</a>
+        </div>
+        <div class="hero-facts">
+          <div class="fact"><b>3</b><span>个赛道方向</span></div>
+          <div class="fact"><b>4</b><span>轮赛制环节</span></div>
+          <div class="fact"><b>5</b><span>项评审维度</span></div>
+        </div>
+      </div>
+
+      <div class="poster" aria-label="赛事材料卡片示意">
+        <div class="poster-head"><span>MATERIAL BOARD</span><span>SEASON 01</span></div>
+        <div class="poster-title">材料完整度看板</div>
+        <div class="poster-sub">按提交材料的核查进度示意</div>
+        <ul class="rank-list">
+          <li><span class="no">01</span>信息来源标注<span class="bar"><i style="width:92%"></i></span></li>
+          <li><span class="no">02</span>时间线梳理<span class="bar"><i style="width:80%"></i></span></li>
+          <li><span class="no">03</span>证据链闭环<span class="bar"><i style="width:68%"></i></span></li>
+          <li><span class="no">04</span>多方回应<span class="bar"><i style="width:54%"></i></span></li>
+          <li><span class="no">05</span>表达与结构<span class="bar"><i style="width:44%"></i></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 赛事介绍 -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">赛事介绍</span>
+        <h2 id="about-title">黑料大赛在比什么</h2>
+        <p>黑料大赛关注“材料”本身：你能否在公开渠道里找到关键信息，能否判断哪些信息可信，能否把零散线索组织成一条可复核的叙事。参赛作品以图文材料为主，允许附加图表、时间轴和对照表。</p>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff5a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          </div>
+          <h3>选题与线索</h3>
+          <p>从公开报道、公告、访谈与公开数据中提炼选题。黑料大赛要求选题有明确的问题意识，说明为什么值得追、从哪条线索切入。</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff5a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-5 3 3 4-6"/></svg>
+          </div>
+          <h3>核查与比对</h3>
+          <p>同一事实尽量给出两个以上独立来源，标注获取时间与出处。矛盾之处不必回避，反而要在黑料大赛作品里写清楚分歧与判断理由。</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff5a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h13"/></svg>
+          </div>
+          <h3>结构与表达</h3>
+          <p>用时间线、人物关系或因果链搭骨架，让读者在五分钟内看懂材料脉络。黑料大赛评审会重点看结构是否服务于事实，而非堆砌篇幅。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 亮点条 -->
+  <section class="stripe" aria-label="赛事特点">
+    <div class="wrap">
+      <div class="grid g3">
+        <div class="cell">
+          <h3>公开可复核</h3>
+          <p>参赛材料须标注来源，评审可逐条核对，避免无法验证的表述。</p>
+        </div>
+        <div class="cell">
+          <h3>过程留痕</h3>
+          <p>提交时附上检索记录与核查笔记，过程与结论同样计入黑料大赛评分。</p>
+        </div>
+        <div class="cell">
+          <h3>反馈可见</h3>
+          <p>每轮结束后公布评审意见摘要，参赛者可据此修改进入下一轮。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 赛制流程 -->
+  <section id="flow" aria-labelledby="flow-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">赛制流程</span>
+        <h2 id="flow-title">黑料大赛的四轮环节</h2>
+        <p>赛制按“选题—核查—成稿—答辩”推进，每轮有明确的交付物，未通过当轮核查的作品不进入下一轮。</p>
+      </div>
+      <ol class="flow">
+        <li>
+          <span class="num" aria-hidden="true"></span>
+          <div>
+            <h3>选题申报</h3>
+            <p>提交不超过 500 字的选题说明，写明问题、线索来源与预期材料类型。黑料大赛鼓励小而具体的题目，避免大而空的综述。</p>
+          </div>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true"></span>
+          <div>
+            <h3>材料核查</h3>
+            <p>按来源清单提交原始链接、截图与获取时间，标注哪些信息已交叉验证、哪些仍待确认。未标注出处的材料在评审中不计分。</p>
+          </div>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true"></span>
+          <div>
+            <h3>成稿提交</h3>
+            <p>以图文形式完成成稿，要求含时间线或对照表，并给出结论的确定程度。黑料大赛不接受以推测替代事实的写法。</p>
+          </div>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true"></span>
+          <div>
+            <h3>现场答辩</h3>
+            <p>入选者用 8 分钟说明核查路径与取舍理由，回答评审关于来源可靠性与逻辑漏洞的提问，最终确定名次。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 评审维度 -->
+  <section id="criteria" aria-labelledby="crit-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">评审维度</span>
+        <h2 id="crit-title">五个维度决定作品得分</h2>
+        <p>黑料大赛采用分项打分再合计的方式，权重如下。权重用于说明评审重点，不代表某一项可以完全替代其他项。</p>
+      </div>
+      <div class="criteria">
+        <div class="crit">
+          <div class="crit-top"><h3>来源可靠性</h3><b>30%</b></div>
+          <div class="meter" aria-hidden="true"><i style="width:30%"></i></div>
+          <p>来源是否权威、是否可追溯、是否存在单一信源依赖。关键事实缺一不可。</p>
+        </div>
+        <div class="crit">
+          <div class="crit-top"><h3>核查过程</h3><b>25%</b></div>
+          <div class="meter" aria-hidden="true"><i style="width:25%"></i></div>
+          <p>是否做了交叉比对，是否记录矛盾与排除过程，核查笔记是否具体到可复现。</p>
+        </div>
+        <div class="crit">
+          <div class="crit-top"><h3>结构清晰度</h3><b>20%</b></div>
+          <div class="meter" aria-hidden="true"><i style="width:20%"></i></div>
+          <p>时间线、关系图与论证顺序是否让读者顺畅理解，重点是否突出。</p>
+        </div>
+        <div class="crit">
+          <div class="crit-top"><h3>表达与规范</h3><b>15%</b></div>
+          <div class="meter" aria-hidden="true"><i style="width:15%"></i></div>
+          <p>用词是否准确克制，是否区分事实与判断，是否遵守隐私与合规要求。</p>
+        </div>
+        <div class="crit">
+          <div class="crit-top"><h3>答辩表现</h3><b>10%</b></div>
+          <div class="meter" aria-hidden="true"><i style="width:10%"></i></div>
+          <p>对提问的回应是否直接，能否说明材料边界与不确定性。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 参赛须知 -->
+  <section id="notes" aria-labelledby="notes-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">参赛须知</span>
+        <h2 id="notes-title">提交前请先读这几条</h2>
+        <p>黑料大赛以公开信息为基础，涉及个人隐私、未生效法律程序与未成年人信息的内容不在受理范围。</p>
+      </div>
+      <div class="notes">
+        <div class="note">
+          <h3>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f5c14b" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v18M3 12h18"/></svg>
+            可以做
+          </h3>
+          <ul>
+            <li>引用公开报道、政府公告、企业公开披露文件</li>
+            <li>使用公开数据做对照与统计</li>
+            <li>记录检索关键词与获取日期</li>
+            <li>对矛盾信息给出并列呈现与判断依据</li>
+          </ul>
+        </div>
+        <div class="note">
+          <h3>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ff5a3c" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            不要做
+          </h3>
+          <ul>
+            <li>披露非公开的个人身份、住址与联系方式</li>
+            <li>使用未获授权的私密聊天记录与影像</li>
+            <li>以推测、传闻作为核心结论</li>
+            <li>对未审结案件作定性判断</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:18px">
+        <p class="quote">提醒：黑料大赛的材料以“可公开核查”为前提。若某一事实只有单一来源，请在作品中直接标明，并说明它对结论的影响程度。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">常见问题</span>
+        <h2 id="faq-title">第一次参加黑料大赛的疑问</h2>
+        <p>以下问题来自报名咨询中最常出现的几类，答案以本届赛事规则为准。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>没有媒体或调查经验可以参加吗？</summary>
+          <p>可以。黑料大赛按材料完整度与核查质量评分，不以职业身份设门槛。首次参赛建议从一个小切口入手，先保证来源清楚、时间线完整。</p>
+        </details>
+        <details>
+          <summary>作品篇幅需要多长？</summary>
+          <p>成稿建议控制在 2000 字上下，配 1 至 2 张图表。篇幅不是评分项，黑料大赛更看重每条关键事实是否都有对应来源。</p>
+        </details>
+        <details>
+          <summary>材料在核查阶段被发现有问题会怎样？</summary>
+          <p>评审会给出具体意见，参赛者可在规定时间内补充或修正后再提交一次。若涉及隐私或合规红线，作品将不进入后续环节。</p>
+        </details>
+        <details>
+          <summary>可以团队报名吗？</summary>
+          <p>可以，团队人数建议不超过 3 人，需在报名时注明分工。答辩环节由主要执笔人作答，其他成员可补充说明核查过程。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 报名 -->
+  <section id="signup" aria-labelledby="signup-title">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <span class="sec-tag">报名入口</span>
+          <h2 id="signup-title">带上你的选题，加入黑料大赛</h2>
+          <p>报名需提交选题说明与来源清单两项材料。提交后可在本页查看赛制与评审维度，按轮次准备交付物。赛事规则如有调整，以最新公告为准。</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#flow">查看赛制后报名</a>
+          <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载参赛材料模板</a>
+          <p class="hint">模板下载入口准备中，开放后在此更新</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <span class="mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 20 12 4l6 16-6-3.6z" fill="#ff5a3c"/></svg>
+          </span>
+          <span>黑料大赛</span>
+        </a>
+        <p>黑料大赛是一个以公开信息核查为核心的创作赛事，鼓励用来源、时间线与证据链讲清一件事。页面内容为赛事介绍，具体安排以官方公告为准。</p>
+      </div>
+      <div>
+        <h4>赛事导航</h4>
+        <ul>
+          <li><a href="#about">赛事介绍</a></li>
+          <li><a href="#flow">赛制流程</a></li>
+          <li><a href="#criteria">评审维度</a></li>
+          <li><a href="#notes">参赛须知</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与</h4>
+        <ul>
+          <li><a href="#signup">报名入口</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#top">回到顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 黑料大赛 · 主题赛事首页</span>
+      <span>内容以公开信息核查为基础，请遵守隐私与合规要求</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
