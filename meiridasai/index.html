@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛合集-每日大赛合集每日更新_大赛合集在线浏览与下载</title>
+<meta name="description" content="每日大赛合集汇集每日更新的各类大赛内容，按日期与类别整理归档，提供在线浏览、分类筛选与合集下载入口，方便快速找到当天与往期大赛合集。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1f2e'/%3E%3Cpath d='M18 44l9-24 5 14 5-14 9 24' fill='none' stroke='%23f5b544' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#12151f;
+  --bg-soft:#1a1f2e;
+  --card:#20263a;
+  --line:#2e3650;
+  --text:#e8ebf2;
+  --muted:#9aa3bb;
+  --accent:#f5b544;
+  --accent-soft:rgba(245,181,68,.12);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(18,21,31,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;height:66px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(245,181,68,.35);
+}
+.logo-text{
+  font-size:17px;font-weight:700;letter-spacing:.5px;
+  color:var(--text);white-space:nowrap;
+}
+.nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.nav a{
+  font-size:14px;color:var(--muted);padding:8px 12px;border-radius:9px;
+  transition:.2s;
+}
+.nav a:hover{color:var(--text);background:var(--bg-soft)}
+.nav a.cta{
+  color:#1a1f2e;background:var(--accent);font-weight:600;
+  margin-left:6px;
+}
+.nav a.cta:hover{background:#ffc85e}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:7px 12px;font-size:14px;cursor:pointer}
+
+/* Hero */
+.hero{
+  padding:64px 0 52px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 82% 18%,rgba(245,181,68,.10),transparent 46%),
+    radial-gradient(circle at 8% 90%,rgba(96,132,255,.10),transparent 48%);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:1.5px;color:var(--accent);
+  background:var(--accent-soft);border:1px solid rgba(245,181,68,.28);
+  padding:5px 12px;border-radius:999px;margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+h1{
+  font-size:clamp(28px,4vw,44px);
+  line-height:1.25;font-weight:800;letter-spacing:.5px;
+  margin-bottom:18px;
+}
+h1 .hl{color:var(--accent)}
+.hero p.lead{color:var(--muted);font-size:16px;max-width:34em;margin-bottom:28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:11px;font-size:15px;font-weight:600;
+  transition:.2s;border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--accent);color:#1a1f2e}
+.btn-primary:hover{background:#ffc85e;transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--bg-soft)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn[aria-disabled="true"]{opacity:.85;cursor:default}
+.hero-visual{position:relative}
+.hero-card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.38);
+}
+.hero-card .tag{font-size:12px;color:var(--accent);letter-spacing:1px;margin-bottom:10px}
+.hero-card .row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.hero-card .row:last-child{border-bottom:none}
+.hero-card .row span{color:var(--muted)}
+.hero-card .row b{color:var(--text);font-weight:600}
+
+/* Section base */
+section{padding:60px 0}
+.section-head{margin-bottom:34px;max-width:42em}
+.section-head .kicker{font-size:12.5px;letter-spacing:2px;color:var(--accent);margin-bottom:10px}
+.section-head h2{font-size:clamp(21px,2.6vw,28px);font-weight:700;margin-bottom:12px;line-height:1.35}
+.section-head p{color:var(--muted);font-size:15px}
+
+/* Today list */
+.today-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.today-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;transition:.22s;display:flex;flex-direction:column;gap:10px;
+}
+.today-card:hover{border-color:rgba(245,181,68,.5);transform:translateY(-3px)}
+.today-card .badge{
+  align-self:flex-start;font-size:11.5px;color:var(--accent);
+  background:var(--accent-soft);padding:3px 9px;border-radius:6px;letter-spacing:.5px;
+}
+.today-card h3{font-size:16.5px;font-weight:700;line-height:1.45}
+.today-card p{font-size:13.5px;color:var(--muted);line-height:1.65}
+.today-card .meta{margin-top:auto;display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}
+
+/* Filter */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  background:var(--bg-soft);border:1px solid var(--line);
+  padding:14px;border-radius:var(--radius);margin-bottom:26px;
+}
+.filter-bar label{font-size:13px;color:var(--muted);margin-right:2px}
+.filter-bar select,.filter-bar input{
+  background:var(--card);border:1px solid var(--line);color:var(--text);
+  border-radius:9px;padding:9px 12px;font-size:14px;font-family:inherit;
+  outline:none;min-width:0;
+}
+.filter-bar select:focus,.filter-bar input:focus{border-color:var(--accent)}
+.filter-bar input{flex:1;min-width:150px}
+.filter-bar .count{margin-left:auto;font-size:13px;color:var(--muted)}
+.archive-list{display:flex;flex-direction:column;gap:12px}
+.archive-item{
+  display:grid;grid-template-columns:86px 1fr auto;gap:18px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px 20px;transition:.2s;
+}
+.archive-item:hover{border-color:rgba(245,181,68,.45)}
+.archive-date{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.5px}
+.archive-item h3{font-size:15.5px;font-weight:600;margin-bottom:3px}
+.archive-item p{font-size:13px;color:var(--muted)}
+.archive-item .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.empty-tip{color:var(--muted);font-size:14px;padding:20px 0;display:none}
+
+/* About / guide */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:start}
+.about-body p{color:var(--muted);font-size:15px;margin-bottom:16px}
+.about-body p strong{color:var(--text);font-weight:600}
+.rule-list{display:flex;flex-direction:column;gap:14px}
+.rule{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;display:flex;gap:14px;align-items:flex-start;
+}
+.rule .num{
+  flex-shrink:0;width:28px;height:28px;border-radius:8px;
+  background:var(--accent-soft);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13.5px;font-weight:700;
+}
+.rule h3{font-size:14.5px;margin-bottom:4px;font-weight:600}
+.rule p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* Download */
+.download{
+  background:linear-gradient(135deg,#1c2233,#232a40);
+  border:1px solid var(--line);border-radius:20px;
+  padding:44px 40px;display:flex;gap:36px;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;
+}
+.download h2{font-size:clamp(20px,2.4vw,26px);margin-bottom:10px;font-weight:700}
+.download p{color:var(--muted);font-size:14.5px;max-width:36em}
+.download .note{font-size:12.5px;color:var(--muted);margin-top:10px;opacity:.85}
+
+/* Footer */
+.site-footer{
+  border-top:1px solid var(--line);padding:36px 0 42px;
+  background:var(--bg-soft);
+}
+.footer-top{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:24px}
+.footer-brand{max-width:22em}
+.footer-brand .logo{margin-bottom:12px}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.7}
+.footer-links{display:flex;gap:48px;flex-wrap:wrap}
+.footer-col h3{font-size:13px;color:var(--text);margin-bottom:10px;letter-spacing:.5px}
+.footer-col a{display:block;font-size:13px;color:var(--muted);padding:3px 0;transition:.2s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{
+  border-top:1px solid var(--line);padding-top:18px;
+  font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-visual{max-width:460px}
+  .today-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:28px}
+  .download{padding:32px 24px}
+}
+@media (max-width:680px){
+  .header-inner{height:auto;padding:12px 0;flex-wrap:wrap}
+  .menu-toggle{display:block}
+  .nav{display:none;width:100%;flex-direction:column;align-items:stretch;gap:4px;padding-top:8px}
+  .nav.open{display:flex}
+  .nav a{padding:10px 12px}
+  .nav a.cta{margin-left:0;text-align:center}
+  .hero{padding:44px 0 38px}
+  section{padding:44px 0}
+  .today-grid{grid-template-columns:1fr}
+  .archive-item{grid-template-columns:1fr;gap:8px;padding:16px}
+  .archive-item .tag{justify-self:flex-start}
+  .filter-bar .count{margin-left:0;width:100%}
+  .download{flex-direction:column;align-items:flex-start}
+  .footer-links{gap:28px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="每日大赛合集首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5b544" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 18l4-11 2 6 2-6 4 11"/>
+        </svg>
+      </span>
+      <span class="logo-text">每日大赛合集</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">导航</button>
+    <nav class="nav" id="mainNav" aria-label="主导航">
+      <a href="#today">今日更新</a>
+      <a href="#archive">往期归档</a>
+      <a href="#guide">收录说明</a>
+      <a href="#download">合集下载</a>
+      <a href="#today" class="cta">查看今日赛程</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">每日整理 · 按日归档</span>
+        <h1>每日大赛合集</h1>
+        <p class="lead">把每天正在进行与刚刚结束的各类大赛整理成一份可追溯的清单：按日期排列、按类别分组，标注赛程阶段与归档状态，让「今天有什么赛、往期在哪看」一次看明白。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#today">浏览今日大赛合集</a>
+          <a class="btn btn-ghost" href="#archive">按日期查找往期</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="tag">今日概览</div>
+          <div class="row"><span>收录赛事</span><b>4 场</b></div>
+          <div class="row"><span>进行中</span><b>2 场</b></div>
+          <div class="row"><span>已归档</span><b>2 场</b></div>
+          <div class="row"><span>最近整理</span><b>今日 08:00</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today -->
+  <section id="today">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">TODAY</div>
+        <h2>今日大赛合集速览</h2>
+        <p>每日大赛合集按收录顺序列出当天各场大赛，标注类别、阶段与整理状态。清单每日更新，条目随赛程推进补充结果与归档说明。</p>
+      </div>
+      <div class="today-grid">
+        <article class="today-card">
+          <span class="badge">进行中</span>
+          <h3>春季创意设计赛 · 第二轮</h3>
+          <p>面向设计与排版方向，第二轮提交已开启，评审阶段稍后公布。合集内保留第一轮入选名单方便对照。</p>
+          <div class="meta"><span>设计类</span><span>已收录</span></div>
+        </article>
+        <article class="today-card">
+          <span class="badge">进行中</span>
+          <h3>城市摄影主题赛 · 征稿期</h3>
+          <p>以城市日常为拍摄主题，征稿期内持续收稿。每日大赛合集同步记录投稿开放时间与阶段变化。</p>
+          <div class="meta"><span>影像类</span><span>已收录</span></div>
+        </article>
+        <article class="today-card">
+          <span class="badge">已归档</span>
+          <h3>短篇写作挑战 · 结果公示</h3>
+          <p>本期结果已公示，完整名单与评语整理进当日合集条目，可沿日期回溯查看往期同类赛事。</p>
+          <div class="meta"><span>写作类</span><span>已归档</span></div>
+        </article>
+        <article class="today-card">
+          <span class="badge">已归档</span>
+          <h3>校园编程马拉松 · 赛程回顾</h3>
+          <p>赛程与题目方向已整理成回顾条目，适合想了解赛制与节奏的读者参考，条目随合集长期保留。</p>
+          <div class="meta"><span>技术类</span><span>已归档</span></div>
+        </article>
+        <article class="today-card">
+          <span class="badge">预告</span>
+          <h3>开放数据可视化赛 · 报名</h3>
+          <p>报名信息已列入今日条目，正式赛程待更新。每日大赛合集会在开放后补充提交节点与评审安排。</p>
+          <div class="meta"><span>数据类</span><span>待更新</span></div>
+        </article>
+        <article class="today-card">
+          <span class="badge">预告</span>
+          <h3>短视频脚本征集 · 筹备</h3>
+          <p>处于筹备阶段，征集方向与时间以官方发布为准。合集条目先记录来源，待确认后再补充细节。</p>
+          <div class="meta"><span>视频类</span><span>待更新</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Archive -->
+  <section id="archive" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">ARCHIVE</div>
+        <h2>往期每日大赛合集归档</h2>
+        <p>按日期倒序排列，可先选类别再筛关键词，快速定位某一天的大赛合集条目。归档条目不删除，只补充状态说明。</p>
+      </div>
+
+      <div class="filter-bar" role="search">
+        <label for="catSelect">类别</label>
+        <select id="catSelect" aria-label="按类别筛选">
+          <option value="all">全部类别</option>
+          <option value="设计类">设计类</option>
+          <option value="影像类">影像类</option>
+          <option value="写作类">写作类</option>
+          <option value="技术类">技术类</option>
+          <option value="数据类">数据类</option>
+          <option value="视频类">视频类</option>
+        </select>
+        <input type="search" id="kwInput" placeholder="搜索赛事名称或关键词" aria-label="搜索赛事名称或关键词">
+        <span class="count" id="resultCount">共 6 条</span>
+      </div>
+
+      <div class="archive-list" id="archiveList">
+        <article class="archive-item" data-cat="设计类" data-kw="春季创意设计赛 设计 排版 第二轮">
+          <div class="archive-date">今日</div>
+          <div>
+            <h3>春季创意设计赛 · 第二轮</h3>
+            <p>设计类｜第二轮进行中，第一轮名单已并入同一条目。</p>
+          </div>
+          <span class="tag">设计类</span>
+        </article>
+        <article class="archive-item" data-cat="影像类" data-kw="城市摄影主题赛 摄影 征稿 影像">
+          <div class="archive-date">今日</div>
+          <div>
+            <h3>城市摄影主题赛 · 征稿期</h3>
+            <p>影像类｜征稿开放中，阶段变化随每日合集更新。</p>
+          </div>
+          <span class="tag">影像类</span>
+        </article>
+        <article class="archive-item" data-cat="写作类" data-kw="短篇写作挑战 写作 结果 公示">
+          <div class="archive-date">昨日</div>
+          <div>
+            <h3>短篇写作挑战 · 结果公示</h3>
+            <p>写作类｜结果已公示，名单与评语收入归档条目。</p>
+          </div>
+          <span class="tag">写作类</span>
+        </article>
+        <article class="archive-item" data-cat="技术类" data-kw="校园编程马拉松 编程 赛程 回顾">
+          <div class="archive-date">昨日</div>
+          <div>
+            <h3>校园编程马拉松 · 赛程回顾</h3>
+            <p>技术类｜赛程结束，题目方向与节奏已整理。</p>
+          </div>
+          <span class="tag">技术类</span>
+        </article>
+        <article class="archive-item" data-cat="数据类" data-kw="开放数据可视化赛 数据 可视化 报名">
+          <div class="archive-date">前日</div>
+          <div>
+            <h3>开放数据可视化赛 · 报名</h3>
+            <p>数据类｜报名信息已收录，正式赛程待更新。</p>
+          </div>
+          <span class="tag">数据类</span>
+        </article>
+        <article class="archive-item" data-cat="视频类" data-kw="短视频脚本征集 视频 脚本 筹备">
+          <div class="archive-date">前日</div>
+          <div>
+            <h3>短视频脚本征集 · 筹备</h3>
+            <p>视频类｜筹备阶段，时间与方向以官方发布为准。</p>
+          </div>
+          <span class="tag">视频类</span>
+        </article>
+      </div>
+      <p class="empty-tip" id="emptyTip">没有匹配的条目，试试更换类别或清空关键词。</p>
+    </div>
+  </section>
+
+  <!-- Guide -->
+  <section id="guide" style="padding-top:0">
+    <div class="wrap about-grid">
+      <div class="about-body">
+        <div class="section-head" style="margin-bottom:20px">
+          <div class="kicker">GUIDE</div>
+          <h2>每日大赛合集怎么收录</h2>
+        </div>
+        <p>每日大赛合集关注的是「一天里有哪些大赛值得一看」。每条条目至少包含名称、类别、当前阶段和最近一次整理时间，来源以赛事官方发布为准。赛事进入新阶段时，我们不新开重复条目，而是在原条目上补充状态，保证同一场大赛在合集中只有一条主线。</p>
+        <p>对于结果已公示的赛事，条目会保留名单与评语入口；对于仍处于报名或筹备阶段的赛事，条目会明确标注「待更新」，避免把预告信息误当成确定赛程。这样在使用每日大赛合集查找时，能一眼分辨哪些是已经落地的内容，哪些还在推进中。</p>
+        <p>归档按日期倒序，不做删除，只做状态回填。需要回看某一天的全貌时，直接沿日期找到当天的每日大赛合集条目即可。</p>
+      </div>
+      <div class="rule-list">
+        <div class="rule">
+          <div class="num">1</div>
+          <div>
+            <h3>按日组织</h3>
+            <p>以自然日为整理单位，同一天的赛事集中呈现，方便横向对比。</p>
+          </div>
+        </div>
+        <div class="rule">
+          <div class="num">2</div>
+          <div>
+            <h3>状态标注</h3>
+            <p>进行中、已归档、待更新三类状态如实标注，未确认信息不写成定论。</p>
+          </div>
+        </div>
+        <div class="rule">
+          <div class="num">3</div>
+          <div>
+            <h3>长期可查</h3>
+            <p>往期条目持续保留，支持类别筛选与关键词检索，便于回溯。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section id="download" style="padding-top:0">
+    <div class="wrap">
+      <div class="download">
+        <div>
+          <h2>下载每日大赛合集</h2>
+          <p>将当前已整理的大赛合集打包下载，便于离线查阅与对照赛程。下载内容以页面现有条目为准，后续更新请回到本页查看最新版本。</p>
+          <p class="note">下载入口准备中，开放后可在此直接获取合集文件。</p>
+        </div>
+        <a class="btn btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="#top" aria-label="每日大赛合集">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5b544" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 18l4-11 2 6 2-6 4 11"/>
+            </svg>
+          </span>
+          <span class="logo-text">每日大赛合集</span>
+        </a>
+        <p>每日大赛合集，按日期整理各类大赛的赛程与归档信息，提供浏览、筛选与合集下载入口。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h3>栏目</h3>
+          <a href="#today">今日更新</a>
+          <a href="#archive">往期归档</a>
+          <a href="#guide">收录说明</a>
+        </div>
+        <div class="footer-col">
+          <h3>常用</h3>
+          <a href="#today">今日赛程</a>
+          <a href="#archive">按日期查找</a>
+          <a href="#download">合集下载</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 每日大赛合集 · 内容以赛事官方发布为准</span>
+      <span>每日整理 · 持续归档</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.getElementById('menuToggle');
+  var nav=document.getElementById('mainNav');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&nav.classList.contains('open')){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var catSelect=document.getElementById('catSelect');
+  var kwInput=document.getElementById('kwInput');
+  var items=Array.prototype.slice.call(document.querySelectorAll('.archive-item'));
+  var countEl=document.getElementById('resultCount');
+  var emptyTip=document.getElementById('emptyTip');
+
+  function applyFilter(){
+    var cat=catSelect?catSelect.value:'all';
+    var kw=kwInput?kwInput.value.trim().toLowerCase():'';
+    var visible=0;
+    items.forEach(function(item){
+      var okCat=(cat==='all')||item.getAttribute('data-cat')===cat;
+      var text=(item.getAttribute('data-kw')+' '+item.textContent).toLowerCase();
+      var okKw=!kw||text.indexOf(kw)>-1;
+      var show=okCat&&okKw;
+      item.style.display=show?'':'none';
+      if(show)visible++;
+    });
+    if(countEl)countEl.textContent='共 '+visible+' 条';
+    if(emptyTip)emptyTip.style.display=visible===0?'block':'none';
+  }
+  if(catSelect)catSelect.addEventListener('change',applyFilter);
+  if(kwInput)kwInput.addEventListener('input',applyFilter);
+})();
+</script>
+</body>
+  </html>
